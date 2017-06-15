@@ -27,7 +27,8 @@ def breed(breedType, breed1, breed2):
 					#print dbreed3
 		return dbreed2, dbreed3
 
-if __name__ == "__main__":
+if 
+__name__ == "__main__":
 	breedType=2
 	breed1="Beagle"
 	breed2="Carin Terrier"
