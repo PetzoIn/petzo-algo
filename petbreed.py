@@ -8,7 +8,9 @@ def breed(breedType, breed1, breed2):
 			for line in reader:
 				if line["Breed"] == breed1:
 					dbreed1 = line["Size"]
-					print dbreed1
+		
+		#test only
+		print dbreed1			
 		return dbreed1
 
 	if breedType == 2:
@@ -17,18 +19,19 @@ def breed(breedType, breed1, breed2):
 			for line in reader:
 				if line["Breed"] == breed1:
 					dbreed2 = line["Size"]
-					#print dbreed2
+					
 
 		with open('data.csv') as fi2_obj:
 			reader = csv.DictReader(fi2_obj, delimiter=',')
 			for line in reader:
 				if line["Breed"] == breed2:
 					dbreed3 = line["Size"]
-					#print dbreed3
+		#test only
+		print dbreed2, dbreed3
 		return dbreed2, dbreed3
 
-if 
-__name__ == "__main__":
+
+if __name__ == "__main__":
 	breedType=2
 	breed1="Beagle"
 	breed2="Carin Terrier"
