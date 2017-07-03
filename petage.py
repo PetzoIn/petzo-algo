@@ -1,6 +1,6 @@
 import datetime
 
-def age(dob=False, year=None, month=None):
+def age(dob,year,month):
 	if dob:
 		# calculate age
 		today = datetime.date.today()
@@ -49,4 +49,6 @@ def age(dob=False, year=None, month=None):
 		elif totalMonths>18:
 			factor = 1.8
 	'''
+
+	print "pet age"
 	return totalMonths
