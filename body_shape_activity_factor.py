@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 from bodyactivity import *
 from bodyshape import *
 
