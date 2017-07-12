@@ -61,32 +61,6 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 				n.append(row[nutrientsIndex])
 				values.append(row[ageIndex])
 
-		# SKIN
-		if skinCoat.lower() == 'shiny':
-			pass
-
-		elif skinCoat.lower() == 'rough':
-			for i in len(n):
-				if 'Vitamin A' in n[i]:
-					values[i] = values[i]*(1.20)
-
-				elif 'Zinc' in n[i]:
-					values[i] = values[i]*(1.25)
-
-				elif 'Linoleic' in n[i]:
-					values[i] = values[i]*(1.25)
-
-		elif skinCoat.lower() == 'fair':
-			for i in len(n):
-				if 'Vitamin A' in n[i]:
-					values[i] = values[i]*(1.20)
-
-				elif 'Choline' in n[i]:
-					values[i] = values[i]*(1.10)
-
-				elif 'Linoleic' in n[i]:
-					values[i] = values[i]*(1.25)
-
 		# STOOLCONSISTENCY
 		if stoolConsistency.lower() == 'normal':
 			pass
@@ -115,6 +89,33 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 
 				elif 'Fat' in n[i]:
 					values[i] = values[i]*(1.20)
+					
+
+		# SKIN
+		if skinCoat.lower() == 'shiny':
+			pass
+
+		elif skinCoat.lower() == 'rough':
+			for i in len(n):
+				if 'Vitamin A' in n[i]:
+					values[i] = values[i]*(1.20)
+
+				elif 'Zinc' in n[i]:
+					values[i] = values[i]*(1.25)
+
+				elif 'Linoleic' in n[i]:
+					values[i] = values[i]*(1.25)
+
+		elif skinCoat.lower() == 'fair':
+			for i in len(n):
+				if 'Vitamin A' in n[i]:
+					values[i] = values[i]*(1.20)
+
+				elif 'Choline' in n[i]:
+					values[i] = values[i]*(1.10)
+
+				elif 'Linoleic' in n[i]:
+					values[i] = values[i]*(1.25)
 
 		# UNUSUALSUBSTANCE
 		if 'grass' in unusualSubstance.lower():
