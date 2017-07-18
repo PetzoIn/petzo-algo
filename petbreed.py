@@ -26,9 +26,19 @@ def breed(breedType, breed1, breed2):
 			for line in reader:
 				if line["Breed"] == breed2:
 					dbreed3 = line["Size"]
+
+		if (dbreed2==dbreed3):
+			dbreed4=dbreed2
+		elif (dbreed2>=3 and dbreed3>=3):
+			dbreed4=4
+		elif ((dbreed2+dbreed3)<5):
+			dbreed4=2
+		else:
+			dbreed4=3
 		#test only
-		print dbreed2, dbreed3
-		return dbreed2, dbreed3
+		#print dbreed2, dbreed3
+		#dbreed4 = dbreed2
+		return dbreed4
 
 
 if __name__ == "__main__":

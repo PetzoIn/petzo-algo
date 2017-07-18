@@ -5,11 +5,13 @@ import csv
 # skinCoat = ROUGH/SHINY/FAIR (TEXT)
 # stoolConsistency = NORMAL/LOOSE/HARD (TEXT)
 # unusualSubstance = OPTIONS (TEXT)
-def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSubstance):
+def nutrientsComposition(age, healthIssue):
 	nutrientsIndex = 0
 	ageIndex = -1
 	healthIssueIndex = -1
-
+	skinCoat=(raw_input("Skin | shiny, rough,fair "))
+	stoolConsistency=(raw_input("Stool | normal,loose,hard "))
+	unusualSubstance=(raw_input("Unusual Subs | grass,litter,cloth,stool,mud,floor "))
 	n = []
 	values = []
 
@@ -50,23 +52,30 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 
 	with open('diseaseNutrients.csv', 'rb') as csvFile:
 		reader = csv.reader(csvFile, delimiter=',')
-
+		reader.next()
 		if healthIssueIndex != -1:
 			for row in reader:
 				n.append(row[nutrientsIndex])
-				values.append(row[healthIssueIndex])
+				# print row[healthIssueIndex]
+				values.append((row[healthIssueIndex]))
 
 		else:
 			for row in reader:
 				n.append(row[nutrientsIndex])
-				values.append(row[ageIndex])
+				# print row[ageIndex]
+				values.append((row[ageIndex]))
+
+		for i in range(0,len(n)):
+			values[i] = float(values[i])
+			# print type(values[i])
 
 		# STOOLCONSISTENCY
 		if stoolConsistency.lower() == 'normal':
 			pass
 
 		elif stoolConsistency.lower() == 'loose':
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Vitamin A' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -77,7 +86,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 					values[i] = values[i]*(0.80)
 
 		elif stoolConsistency.lower() == 'hard':
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Vitamin A' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -96,7 +106,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 			pass
 
 		elif skinCoat.lower() == 'rough':
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Vitamin A' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -107,7 +118,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 					values[i] = values[i]*(1.25)
 
 		elif skinCoat.lower() == 'fair':
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Vitamin A' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -119,7 +131,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 
 		# UNUSUALSUBSTANCE
 		if 'grass' in unusualSubstance.lower():
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Vitamin A' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -127,7 +140,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 					values[i] = values[i]*(1.20)
 
 		elif 'litter' in unusualSubstance.lower():
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Thiamine' in n[i]:
 					values[i] = values[i]*(1.10)
 
@@ -149,7 +163,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 				values[i] = values[i]*(1.15)
 
 		elif 'cloth' in unusualSubstance.lower():
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Vitamin A' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -157,7 +172,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 					values[i] = values[i]*(1.10)
 
 		elif 'floor' in unusualSubstance.lower():
-			for i in len(n):
+			for i in range(0,len(n)):
+
 				if 'Calcium' in n[i]:
 					values[i] = values[i]*(1.20)
 
@@ -168,3 +184,8 @@ def nutrientsComposition(age, healthIssue, skinCoat, stoolConsistency, unusualSu
 					values[i] = values[i]*(1.10)
 
 		return values
+
+if __name__ == '__main__':
+	healthIssue=(raw_input("Health issues?(gastro,joint,kidney,skin,diabetes,cvd,liver) "))	
+	age="GROWTH"
+	nutrientsComposition(age, healthIssue)

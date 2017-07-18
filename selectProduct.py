@@ -56,7 +56,12 @@ def chooseProduct(healthIssue, breedSize, lifeSpan, flavoursToAvoid):
 
 		print 'FLAVOURS TO AVOID'
 		for i in final:
-			print i[0]
+			productID = i[0]
+			print productID
 
 if __name__ == '__main__':
-	chooseProduct()
+	breedSize = 'medium'
+	healthIssue = 'gastro'
+	lifeSpan = 'puppy'
+	flavoursToAvoid = 'chicken'
+	chooseProduct(healthIssue, breedSize, lifeSpan, flavoursToAvoid)
